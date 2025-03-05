@@ -1,0 +1,8 @@
+@if (post) {
+<div class="post-item card shadow-sm mb-4" (click)="onPostClick(post._id)">
+  <div class="card-body">
+    <h3 class="post-title">{{ post.title }}</h3>
+    <p class="post-content">{{ post.content }}</p>
+  </div>
+</div>
+}

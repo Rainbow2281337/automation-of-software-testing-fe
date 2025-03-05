@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../services/auth/auth.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-auth-page',
@@ -30,7 +30,10 @@ export class AuthPageComponent implements OnInit {
    */
   public submitted: boolean = false;
 
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -60,7 +63,9 @@ export class AuthPageComponent implements OnInit {
 
     this.authService.login(email, password).subscribe({
       next: (response) => {
-        console.log('Response:', response); // TODO: REMOVE THIS LINE
+        if (response?.access_token) {
+          this.router.navigate(['/main']);
+        }
       },
       error: (error) => {
         console.error('Error:', error); // TODO: REPALCE WITH ERROR HANDLER

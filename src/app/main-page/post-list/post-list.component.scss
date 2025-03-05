@@ -1,0 +1,15 @@
+.post-list {
+  .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  app-post-item {
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+}
