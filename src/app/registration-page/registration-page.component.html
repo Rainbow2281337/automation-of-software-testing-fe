@@ -1,1 +1,74 @@
-<p>registration-page works!</p>
+<form id="formRegister" [formGroup]="regForm">
+  <div class="form-group">
+    <input
+      id="emailInput"
+      name="emailInput"
+      class="reg-email"
+      type="text"
+      placeholder="Email"
+      required
+      formControlName="email"
+      [ngClass]="{
+        'is-invalid': submitted && regForm.controls['email'].errors
+      }"
+    />
+    @if (submitted && regForm.controls['email'].errors) {
+    <div class="invalid-feedback">
+      @if (regForm.controls['email'].errors['required']) {
+      <span>Value is required</span>
+      }
+    </div>
+    }
+  </div>
+  <div class="form-group">
+    <input
+      id="userNameInput"
+      name="userNameInput"
+      class="reg-userName"
+      type="text"
+      placeholder="Username"
+      required
+      formControlName="userName"
+      [ngClass]="{
+        'is-invalid': submitted && regForm.controls['userName'].errors
+      }"
+    />
+    @if (submitted && regForm.controls['userName'].errors) {
+    <div class="invalid-feedback">
+      @if (regForm.controls['userName'].errors['required']) {
+      <span>Value is required</span>
+      }
+    </div>
+    }
+  </div>
+  <div class="form-group">
+    <input
+      id="passwordInput"
+      name="passwordInput"
+      class="reg-password"
+      type="password"
+      placeholder="Password"
+      required
+      formControlName="password"
+      [ngClass]="{
+        'is-invalid': submitted && regForm.controls['password'].errors
+      }"
+    />
+    @if (submitted && regForm.controls['password'].errors) {
+    <div class="invalid-feedback">
+      @if (regForm.controls['password'].errors['required']) {
+      <span>Value is required</span>
+      }
+    </div>
+    }
+  </div>
+
+  <div>
+    <button type="submit" class="reg-submit" (click)="emitRegistration($event)">
+      Register
+    </button>
+    <div>
+      <a routerLink="/auth">Have an account?</a>
+    </div>
+  </div>
+</form>
