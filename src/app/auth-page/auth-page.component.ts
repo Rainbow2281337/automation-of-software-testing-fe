@@ -7,10 +7,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../services/auth/auth.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-auth-page',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './auth-page.component.html',
   styleUrl: './auth-page.component.scss',
 })
