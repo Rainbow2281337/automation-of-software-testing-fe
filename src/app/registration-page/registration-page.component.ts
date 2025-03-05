@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-registration-page',
@@ -18,6 +18,8 @@ import { RouterModule } from '@angular/router';
 export class RegistrationPageComponent implements OnInit {
   /**
    * The registration data of the {@link FormGroup}
+   *
+   * @memberof AuthPageComponent
    */
   public regForm!: FormGroup;
 
@@ -28,7 +30,10 @@ export class RegistrationPageComponent implements OnInit {
    */
   public submitted: boolean = false;
 
-  constructor(private readonly authSerice: AuthService) {}
+  constructor(
+    private readonly authSerice: AuthService,
+    private readonly router: Router
+  ) {}
 
   ngOnInit(): void {
     this.regForm = new FormGroup({
@@ -45,6 +50,12 @@ export class RegistrationPageComponent implements OnInit {
     });
   }
 
+  /**
+   * Emits the registration data from the form
+   *
+   * @param {Event} event The event that was triggered
+   * @memberof AuthPageComponent
+   */
   emitRegistration(event: Event) {
     event.preventDefault();
     this.submitted = true;
@@ -56,7 +67,9 @@ export class RegistrationPageComponent implements OnInit {
 
     this.authSerice.register(email, userName, password).subscribe({
       next: (response) => {
-        console.log(response); // TODO: REMOVE THIS LINE
+        if (response?.access_token) {
+          this.router.navigate(['/main']);
+        }
       },
       error: (error) => {
         console.error('Error:', error); // TODO: REPALCE WITH ERROR HANDLER

@@ -1,0 +1,13 @@
+<div class="post-list container my-4">
+  @if (isLoading) {
+  <span>Loading...</span>
+  } @else {
+  <ul class="row">
+    @for (post of postList; track post._id) {
+    <li>
+      <app-post-item [post]="post"></app-post-item>
+    </li>
+    }
+  </ul>
+  }
+</div>

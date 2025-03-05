@@ -1,0 +1,33 @@
+@if (post) {
+<div class="post-details container my-4">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h1 class="post-title">{{ post.title }}</h1>
+      <p class="post-content">{{ post.content }}</p>
+      <div class="comments-section mt-4">
+        <h4>Comments</h4>
+        <ul class="list-group">
+          @for (comment of comments; track comment._id) {
+          <li class="list-group-item">
+            {{ comment.comment }}
+          </li>
+          }
+        </ul>
+      </div>
+      <div class="add-comment mt-4">
+        <label for="newComment" class="form-label">Add a Comment:</label>
+        <textarea
+          id="newComment"
+          class="form-control"
+          rows="3"
+          placeholder="Write your comment here..."
+          [(ngModel)]="commentToAdd"
+        ></textarea>
+        <button class="btn btn-primary mt-2" (click)="addComment(post._id)">
+          Add Comment
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+}
