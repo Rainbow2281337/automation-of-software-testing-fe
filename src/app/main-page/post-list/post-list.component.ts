@@ -51,13 +51,13 @@ export class PostListComponent implements OnInit {
    * It then fetches the posts from the server and subscribes to the observable.
    * When the observable emits a value, the posts are stored in the postList property.
    */
-  fetchPosts() {
+  fetchPosts(filter?: any) {
     this.isLoading = true;
     this.destroySubscriptions();
     this.destroySub$ = new Subject<void>();
 
     this.postService
-      .fetchPosts()
+      .fetchPosts(filter)
       .pipe(takeUntil(this.destroySub$))
       .subscribe({
         next: (posts) => {
