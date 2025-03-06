@@ -1,1 +1,18 @@
-<p>profile-button works!</p>
+<div class="profile-button-container">
+  <button class="btn btn-primary profile-btn" (click)="openUserInfo()">
+    Profile
+  </button>
+
+  @if (clicked) {
+  <div class="popup">
+    <p>
+      <strong>Email:</strong>
+      {{ user.email || "Can't find any information about you" }}
+    </p>
+    <p>
+      <strong>Username:</strong>
+      {{ user.userName || "Can't find any information about you" }}
+    </p>
+  </div>
+  }
+</div>
