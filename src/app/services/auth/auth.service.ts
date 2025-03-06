@@ -27,6 +27,7 @@ export class AuthService {
       tap((response) => {
         if (response.access_token) {
           localStorage.setItem('auth_token', response.access_token);
+          localStorage.setItem('email', response.payload.email);
         }
       }),
       catchError((error) => {
