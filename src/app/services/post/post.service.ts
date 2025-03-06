@@ -11,8 +11,11 @@ export class PostService {
 
   constructor(private readonly http: HttpClient) {}
 
-  fetchPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.apiUrl).pipe(
+  fetchPosts(filters?: any): Observable<Post[]> {
+    const params = filters && new URLSearchParams(filters).toString();
+    const url = params ? `${this.apiUrl}?${params}` : this.apiUrl;
+
+    return this.http.get<Post[]>(url).pipe(
       catchError((error) => {
         console.error('Error:', error);
         throw error;
