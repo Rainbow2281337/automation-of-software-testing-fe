@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { Comment } from '../../main-page/shared/comments.interface';
 
 @Injectable({
@@ -11,7 +11,13 @@ export class CommentService {
 
   constructor(private readonly http: HttpClient) {}
 
-  fetchAllCommentsByPostId(postId: string) {
+  /**
+   * Sets the postId as a query parameter and fetch all comments for that post
+   *
+   * @param postId - post id
+   * @returns - Observable<Comment[]>
+   */
+  fetchAllCommentsByPostId(postId: string): Observable<Comment[]> {
     const params = new HttpParams().set('postId', postId);
 
     return this.http.get<Comment[]>(this.apiUrl, { params }).pipe(
@@ -22,7 +28,14 @@ export class CommentService {
     );
   }
 
-  createComment(postId: string, comment: string) {
+  /**
+   * Creates a new comment
+   *
+   * @param postId - post id
+   * @param comment - comment
+   * @returns - Observable<Comment>
+   */
+  createComment(postId: string, comment: string): Observable<Comment> {
     const payload = { postId, comment };
 
     return this.http.post<Comment>(this.apiUrl, payload).pipe(
