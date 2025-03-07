@@ -11,6 +11,12 @@ export class UserService {
 
   constructor(private readonly http: HttpClient) {}
 
+  /**
+   * Fetches user data by email
+   *
+   * @param email - email of the user
+   * @returns - Observable<User>
+   */
   getUserDataByEmail(email: string): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/email/${email}`).pipe(
       catchError((error) => {
@@ -20,6 +26,12 @@ export class UserService {
     );
   }
 
+  /**
+   * Update user data with provided updated data and userId
+   *
+   * @param userId - userId of the user
+   * @returns - Observable<User>
+   */
   updateUser(userId: string, updatedData: Partial<User>): Observable<User> {
     return this.http.put<User>(`${this.apiUrl}/${userId}`, updatedData).pipe(
       catchError((error) => {
