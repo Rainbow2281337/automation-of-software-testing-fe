@@ -12,30 +12,41 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+## About this project  
+This project allows users to perform a variety of actions, including user registration, authentication, and interacting with posts. The core features include the ability to create, read, and comment on posts, providing an interactive experience. Additionally, each user has access to their profile in a pop-up window where they can view their email and username.  
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### Features
+User Registration and Authentication:  
 ```bash
-ng generate component component-name
+-Users can register an account, log in, and authenticate using their credentials.  
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+Post Creation and Viewing:  
 ```bash
-ng generate --help
+-Users can create new posts and view existing ones.  
 ```
-
-## Building
-
-To build the project run:
-
+Commenting on Posts:  
 ```bash
-ng build
+-Users can leave comments on posts to share their thoughts.  
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
+Profile Pop-Up:  
+```bash
+-Users can view their profile information, including their email and username, in a convenient pop-up window.  
+```
+Technologies Used:  
+```bash
+Frontend: Angular, HTML, SCSS, Bootstrap, TypeScript  
+```
+## Folder Structure  
+```bash
+src  
+  └── app  
+      ├── auth-page  
+      ├── main-page  
+      ├── navigation  
+      ├── page-not-found  
+      ├── registration-page  
+      └── services  
+```
 ## Running unit tests
 
 To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
