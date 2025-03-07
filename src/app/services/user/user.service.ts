@@ -19,4 +19,13 @@ export class UserService {
       })
     );
   }
+
+  updateUser(userId: string, updatedData: Partial<User>): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/${userId}`, updatedData).pipe(
+      catchError((error) => {
+        console.error('Error:', error);
+        throw error;
+      })
+    );
+  }
 }

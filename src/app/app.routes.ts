@@ -1,11 +1,28 @@
 import { Routes } from '@angular/router';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AuthPageComponent } from './auth-page/auth-page.component';
 
 export const routes: Routes = [
   { path: 'registration', component: RegistrationPageComponent },
-  { path: 'auth', component: AuthPageComponent },
+  {
+    path: 'auth',
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./auth-page/auth-page.component').then(
+            (m) => m.AuthPageComponent
+          ),
+      },
+      {
+        path: 'password-forgotten',
+        loadComponent: () =>
+          import(
+            './auth-page/password-forgotten/password-forgotten.component'
+          ).then((m) => m.PasswordForgottenComponent),
+      },
+    ],
+  },
   {
     path: 'main',
     children: [
