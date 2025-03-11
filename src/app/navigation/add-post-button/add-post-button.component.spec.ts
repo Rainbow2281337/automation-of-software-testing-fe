@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddPostButtonComponent } from './add-post-button.component';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('AddPostButtonComponent', () => {
   let component: AddPostButtonComponent;
@@ -8,9 +10,9 @@ describe('AddPostButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddPostButtonComponent]
-    })
-    .compileComponents();
+      imports: [AddPostButtonComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AddPostButtonComponent);
     component = fixture.componentInstance;
