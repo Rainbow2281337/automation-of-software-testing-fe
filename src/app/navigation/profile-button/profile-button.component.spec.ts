@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfileButtonComponent } from './profile-button.component';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('ProfileButtonComponent', () => {
   let component: ProfileButtonComponent;
@@ -8,9 +10,9 @@ describe('ProfileButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProfileButtonComponent]
-    })
-    .compileComponents();
+      imports: [ProfileButtonComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ProfileButtonComponent);
     component = fixture.componentInstance;
