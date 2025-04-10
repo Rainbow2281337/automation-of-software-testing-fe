@@ -29,6 +29,8 @@
     "@angular/cli": "^19.1.4",
     "@angular/compiler-cli": "^19.1.0",
     "@types/jasmine": "~5.1.0",
+    "@types/selenium-webdriver": "^4.1.28",
+    "chromedriver": "^135.0.1",
     "cypress": "^14.2.0",
     "jasmine-core": "~5.5.0",
     "karma": "~6.4.0",
@@ -36,6 +38,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "selenium-webdriver": "^4.31.0",
+    "ts-node": "^10.9.2",
     "typescript": "~5.7.2"
   }
 }

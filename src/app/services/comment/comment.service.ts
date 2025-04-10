@@ -2,12 +2,13 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
 import { Comment } from '../../main-page/shared/comments.interface';
+import { PORT } from '../shared/consts';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommentService {
-  private readonly apiUrl = 'http://localhost:5000/comment';
+  private readonly apiUrl = `http://localhost:${PORT}/comment`;
 
   constructor(private readonly http: HttpClient) {}
 

@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
 import { User } from '../shared/interfaces/user.interface';
+import { PORT } from '../shared/consts';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private readonly apiUrl = 'http://localhost:5000/user';
+  private readonly apiUrl = `http://localhost:${PORT}/user`;
 
   constructor(private readonly http: HttpClient) {}
 

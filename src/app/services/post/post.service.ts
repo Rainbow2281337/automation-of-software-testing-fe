@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
 import { Post } from '../../main-page/shared/post.interface';
+import { PORT } from '../shared/consts';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostService {
-  private readonly apiUrl = 'http://localhost:5000/posts';
+  private readonly apiUrl = `http://localhost:${PORT}/posts`;
 
   constructor(private readonly http: HttpClient) {}
 

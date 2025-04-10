@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, tap } from 'rxjs';
 import { UserPayload } from '../../auth-page/shared/interface';
+import { PORT } from '../shared/consts';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly apiUrl = 'http://localhost:5000/auth';
+  private readonly apiUrl = `http://localhost:${PORT}/auth`;
 
   constructor(private readonly http: HttpClient) {}
 
