@@ -97,6 +97,7 @@ export class PasswordForgottenComponent implements OnInit {
    * @param event - The event to emit the new password
    * @memberof PasswordForgottenComponent
    */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   emitNewPassword(event: Event) {
     if (this.form.valid && this.submitted && this.isUserFound) {
       this.userService

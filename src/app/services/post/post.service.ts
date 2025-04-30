@@ -19,6 +19,7 @@ export class PostService {
    * @param filters - query parameters
    * @returns - Observable<Post[]>
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fetchPosts(filters?: any): Observable<Post[]> {
     const params = filters && new URLSearchParams(filters).toString();
     const url = params ? `${this.apiUrl}?${params}` : this.apiUrl;
