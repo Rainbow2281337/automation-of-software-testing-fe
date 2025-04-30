@@ -24,6 +24,7 @@ export class MainPageComponent {
    * @param keyword - The keyword to search for
    */
   onSearch(keyword: string): void {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     keyword.trim()
       ? this.postListComponent.fetchPosts({ title: keyword })
       : this.postListComponent.fetchPosts();
