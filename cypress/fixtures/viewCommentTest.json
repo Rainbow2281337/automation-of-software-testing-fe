@@ -1,0 +1,15 @@
+[
+  { "keyword": "openPage", "args": ["/auth"] },
+  {
+    "keyword": "type",
+    "args": ["#emailInput", "alexey.shevchenko.03@gmail.com"]
+  },
+  { "keyword": "type", "args": ["#passwordInput", "12345678"] },
+  { "keyword": "click", "args": [".login-submit"] },
+  { "keyword": "shouldBeUrl", "args": ["/main"] },
+  { "keyword": "openPage", "args": ["/main/post/67cac89ce74d6252505bfaf3"] },
+  { "keyword": "shouldExist", "args": [".post-title"] },
+  { "keyword": "shouldExist", "args": [".post-content"] },
+  { "keyword": "shouldExist", "args": [".comments-section"] },
+  { "keyword": "shouldExist", "args": [".list-group-item"] }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "keyword": "openPage",
+    "args": ["/registration"]
+  },
+  {
+    "keyword": "type",
+    "args": ["#emailInput", "test233@example.com"]
+  },
+  {
+    "keyword": "type",
+    "args": ["#userNameInput", "TestUser"]
+  },
+  {
+    "keyword": "type",
+    "args": ["#passwordInput", "12345678"]
+  },
+  {
+    "keyword": "click",
+    "args": [".reg-submit"]
+  },
+  {
+    "keyword": "shouldBeUrl",
+    "args": ["/main"]
+  }
+]
